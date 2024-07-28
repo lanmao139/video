@@ -1,1 +1,91 @@
 @import './base.css';
+
+
+.card {
+    width: 100%;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .thumb {
+    position: relative;
+    background-color: #f3f3f3;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  
+  .thumb::before {
+    display: block;
+    width: 100%;
+    padding-bottom: 56.25%;
+    content: "";
+  }
+  
+  .wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .thumb_img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  
+  .video_second {
+    background-color: rgba(162, 162, 182, .7);
+    bottom: 2px;
+    color: #fff;
+    font-size: 10px;
+    line-height: 10px;
+    padding: 2px 3px;
+    position: absolute;
+    right: 2px;
+  }
+  
+  
+  .tag {
+    background-color: red;
+    top: 2px;
+    color: #fff;
+    font-size: 14px;
+    line-height: 10px;
+    padding: 4px 10px;
+    position: absolute;
+    left: 2px;
+  }
+  
+  
+  .title {
+    color: #000028;
+    font-size: 14px;
+    line-height: 1.4;
+    margin-top: 0px;
+    padding: 0 4px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .video_info {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    font-size: 14px;
+    color: rgba(51, 51, 51, 0.8);
+    padding: 4px;
+    box-sizing: border-box;
+  }
+  
+  .auto_right {
+    margin-left: auto;
+  }
+  
+  .icon {
+    margin: 0 4px;
+  }

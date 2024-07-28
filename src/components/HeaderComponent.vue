@@ -1,6 +1,6 @@
 <script setup>
 import { onMounted, ref, watch } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 import { useScreenStore } from "../stores/index";
 
 const showRight = ref(false)
@@ -12,9 +12,18 @@ const openMenu = () => {
   
 
 const router = useRouter()
+const route = useRoute()
+const showMenu = ref(true)
+
 watch(
   () => router.currentRoute.value.path,
-  async (toPath) => {
+  (toPath) => {
+    console.log(route.meta.header)
+    if(route.meta.header) {
+      showMenu.value = true
+    } else {
+      showMenu.value = false
+    }
     showRight.value = false
   },
   { immediate: true, deep: true }
@@ -48,6 +57,11 @@ const onSelect = (e)=> {
   console.log(e.text)
 }
 
+
+const goHome = () => {
+  router.push({name: 'home'})
+}
+
 </script>
 
 
@@ -55,10 +69,10 @@ const onSelect = (e)=> {
   <div>
     <van-sticky>
       <div class="header">
-        <img class="logo" src="../assets/bilibili.webp" alt="">
+        <img class="logo" @click="goHome" src="../assets/bilibili.webp" alt="">
 
 
-        <div class="search_pc" v-if="!useScreenStore().screenWidth">
+        <div class="search_pc" v-if="!useScreenStore().screenWidth && showMenu">
           <input type="search" placeholder="搜索" v-model="str" @focus="handleFocus" @blur="handleBlur" class="search_input">
 
           <div class="record_pannel" v-if="focus && str">
@@ -68,7 +82,10 @@ const onSelect = (e)=> {
           </div>
         </div>
 
-        <div class="right-block">
+        <div class="right-block" v-if="showMenu">
+
+
+          
           <img class="search" @click="openSearch = true" v-if="useScreenStore().screenWidth" src="../assets/icon_seach.png" alt="">
 
           <van-popover v-model:show="showPopover" placement="bottom-end" v-if="!useScreenStore().screenWidth">

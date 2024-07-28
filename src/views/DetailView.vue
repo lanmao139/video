@@ -88,7 +88,7 @@ onBeforeUnmount(() => {
 <template>
   <div class="container">
     <div ref="artRef" class="artplayer-app"></div>
-    <div class="title">
+    <div class="video_title">
       京剧《武家坡》唱段“提起当年泪不干”（高清）耿其昌饰薛平贵
     </div>
     <div class="video_info">987次观看 · 2天前</div>
@@ -141,6 +141,36 @@ onBeforeUnmount(() => {
 
     </div>
 
+    <div class="section">
+      <div>相关视频</div>
+      <van-icon name="arrow" />
+    </div>
+
+
+    <div class="list">
+      <van-grid :border="false" style="width: 100%;" :column-num="useScreenStore().screenWidth?2:3">
+        <van-grid-item  v-for="item in 12">
+
+          <div class="card">
+
+            <div class="thumb">
+              <div class="wrap">
+                <img class="thumb_img" src="../assets/sssss.webp" alt="">
+                <div class="video_second">2:20:39</div>
+
+                <div class="tag">hot</div>
+              </div>
+            </div>
+
+            <div class="title van-multi-ellipsis--l2">
+              本以为今天太阳打西边出来了，狗蛋对富贵这么好，结局却意想不到啊#兄弟日常 #湖南特产
+            </div>
+
+          </div>
+
+        </van-grid-item>
+      </van-grid>
+    </div>    
   </div>
 </template>
 
@@ -156,7 +186,7 @@ onBeforeUnmount(() => {
   aspect-ratio: 16/9;
 }
 
-.title {
+.video_title {
   font-size: 16px;
   line-height: 1.4;
   font-weight: 500;
@@ -264,5 +294,23 @@ onBeforeUnmount(() => {
 
 .leftauto{
   margin-left: auto;
+}
+
+
+.section{
+  display: flex;
+  align-items: center;
+  margin: 12px;
+  padding: 12px 0;
+  justify-content: space-between;
+  border-top: 1px solid #e3e5e7;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.title{
+  font-size: 12px;
+  padding: 4px;
+  line-height: 20px;
 }
 </style>

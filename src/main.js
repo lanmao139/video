@@ -2,7 +2,7 @@ import './assets/main.css'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
-import { Button, Sticky, Icon, Popup, Cell, CellGroup, Divider, Overlay, Field, Popover, Grid, GridItem} from 'vant';
+import { Button,Form, Sticky, Icon, Popup, Cell, CellGroup, Divider, Overlay, Field, Popover, Grid, GridItem, Pagination } from 'vant';
 
 import App from './App.vue'
 import router from './router'
@@ -25,5 +25,7 @@ app.use(Field);
 app.use(Popover);
 app.use(Grid);
 app.use(GridItem);
+app.use(Pagination);
+app.use(Form);
 
 app.mount('#app')
